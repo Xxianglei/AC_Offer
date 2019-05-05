@@ -10,12 +10,16 @@ public class Offer8 {
         //      4     5
         //    inorder->42513
         TreeLinkNode root = new TreeLinkNode(1);
-        root.left = new TreeLinkNode(2);
-        root.right = new TreeLinkNode(3);
-        root.left.left = new TreeLinkNode(4);
-        root.left.right = new TreeLinkNode(5);
 
-        System.out.println(GetNext(root.left ).val);
+        root.left = new TreeLinkNode(2);
+        root.left.father =root;
+        root.right = new TreeLinkNode(3);
+        root.right.father =root;
+        root.left.left = new TreeLinkNode(4);
+        root.left.left.father =root.left;
+        root.left.right = new TreeLinkNode(5);
+        root.left.right.father =root.left;
+        System.out.println(GetNext(root.left.right ).val);
     }
 
     public static TreeLinkNode GetNext(TreeLinkNode pNode) {
@@ -34,11 +38,11 @@ public class Offer8 {
             while (pNode.left != null) pNode = pNode.left;
             return pNode;
         }
-        while (null != pNode.next) {//这个则是在没有右子树的情况下，求下一个结点。下面if
-            if (pNode.next.left == pNode) {
-                return pNode.next;
+        while (pNode.father !=null) {//这个则是在没有右子树的情况下，求下一个结点。下面if
+            if (pNode.father.left == pNode) {
+                return pNode.father;
             }
-            pNode = pNode.next;
+            pNode = pNode.father;
         }
         return pNode;
     }
@@ -48,7 +52,7 @@ class TreeLinkNode {
     int val;
     TreeLinkNode left = null;
     TreeLinkNode right = null;
-    TreeLinkNode next = null;
+    TreeLinkNode father = null;
 
     TreeLinkNode(int val) {
         this.val = val;
