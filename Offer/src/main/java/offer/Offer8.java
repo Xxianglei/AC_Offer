@@ -1,12 +1,24 @@
 package offer;
 
+
 public class Offer8 {
     public static void main(String[] args) {
+        //            1
+        //          // \\
+        //         2     3
+        //       // \\
+        //      4     5
+        //    inorder->42513
+        TreeLinkNode root = new TreeLinkNode(1);
+        root.left = new TreeLinkNode(2);
+        root.right = new TreeLinkNode(3);
+        root.left.left = new TreeLinkNode(4);
+        root.left.right = new TreeLinkNode(5);
 
-
+        System.out.println(GetNext(root).val);
     }
 
-    public TreeLinkNode GetNext(TreeLinkNode pNode) {
+    public static TreeLinkNode GetNext(TreeLinkNode pNode) {
         /*这里需要注意的是pNode.next是pNode结点的父结点
         1、如果有右子树，那么下一个结点就是右子树最左边的节点。
         2、如果没有右子树，分两种情况，如果该结点的为父结点的左孩子，则该结点的父节点pNode.next则为
