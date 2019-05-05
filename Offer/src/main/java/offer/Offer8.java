@@ -15,7 +15,7 @@ public class Offer8 {
         root.left.left = new TreeLinkNode(4);
         root.left.right = new TreeLinkNode(5);
 
-        System.out.println(GetNext(root).val);
+        System.out.println(GetNext(root.left ).val);
     }
 
     public static TreeLinkNode GetNext(TreeLinkNode pNode) {
@@ -34,9 +34,10 @@ public class Offer8 {
             while (pNode.left != null) pNode = pNode.left;
             return pNode;
         }
-        while (pNode.next != null) {//这个则是在没有右子树的情况下，求下一个结点。下面if
-            if (pNode.next.left == pNode)
+        while (null != pNode.next) {//这个则是在没有右子树的情况下，求下一个结点。下面if
+            if (pNode.next.left == pNode) {
                 return pNode.next;
+            }
             pNode = pNode.next;
         }
         return pNode;
