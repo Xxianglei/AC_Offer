@@ -7,4 +7,7 @@ package offer;
  * 则重建出图中所示二叉树并且输出它的头结点。
  */
 public class Offer7 {
+    public static void main(String[] args) {
+
+    }
 }
