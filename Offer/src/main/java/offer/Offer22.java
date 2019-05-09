@@ -16,18 +16,19 @@ public class Offer22 {
         LinkNode.node_value = 1;
         node2.next = node3;
         node2.node_value = 2;
-        node3.next = node4;
+        node2.next=null;
+      /*  node3.next = node4;
         node3.node_value = 3;
         node4.next = node5;
         node4.node_value = 4;
         node5.node_value = 5;
-        node5.next = null;
+        node5.next = null;*/
         int K = 5;
-        System.out.println(deleteOnK(LinkNode, K));
+        System.out.println(deleteOnK(LinkNode, 2));
     }
 
     /**
-     * 指针1 先走k步  指针2位于开始位置  当1走到尾  2就是k
+     * 指针1 先走k-1步  指针2位于开始位置  当1走到尾  2就是k
      *
      * @param linkNode
      * @return
