@@ -8,7 +8,6 @@ public class Offer12 {
         int rows = nums.length;
         int cols = nums[0].length;
         char startch[] = {'b', 'f', 'c', 'h'};
-
         boolean tag = hashPath(nums, rows, cols, startch);
         if (tag) {
             System.out.println("存在路径");
