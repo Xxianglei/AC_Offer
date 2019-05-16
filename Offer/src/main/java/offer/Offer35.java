@@ -54,50 +54,7 @@ public class Offer35 {
         }
     }
 
-    /**
-     * 基于On时间复杂度
-     */
-    static void CloneNodes2(ComplexListNode head) {
-        /**
-         * 复制节点同时连接到当前节点下一个
-         */
-        ComplexListNode currNode = head;
-        ComplexListNode copyNode = null;
-        while (currNode != null) {
-            copyNode = new ComplexListNode(currNode.node_value);
-            copyNode.pNext = currNode.pNext;
-            copyNode = currNode.pNext;
-            currNode = copyNode.pNext;
-        }
-        /**
-         * 确定Sibling的指向
-         */
-        ComplexListNode currNode2 = head;
-        while (currNode2 != null) {
-            ComplexListNode copyNode2 = currNode2.pNext;
-            if (copyNode2.pSibling != null) {
-                copyNode2.pSibling = copyNode2.pSibling.pNext;
-            }
-            copyNode2 = copyNode2.pNext;
-        }
-        /**
-         * 裁断链表
-         */
-        ComplexListNode currNode3 = head;
-        ComplexListNode copyNodeHead = null;
-        ComplexListNode copyNode3 = null;
-        if (currNode3 != null) {
-            copyNodeHead = copyNode3 = currNode3.pNext;  // 第二个  偶数位
-            currNode3.pNext = copyNode3.pNext;   //
-            copyNode3 = currNode3.pNext;           //
-        }
-        while (copyNode3 != null) {
-            copyNodeHead.pNext = copyNode3.pNext;
-            copyNode3 = copyNodeHead.pNext;
-            copyNode3.pNext = copyNodeHead.pNext;
-            copyNode3 = currNode3.pNext;
-        }
-    }
+
 }
 /**
  * 链表类
